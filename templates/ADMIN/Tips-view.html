@@ -1,0 +1,31 @@
+{% extends 'admin/index.html' %}
+{% block body%}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<br ><br ><br ><br >
+<table class="table table-bordered">
+
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">NOTE</th>
+    <th scope="col">DATE</th>
+    <th scope="col"></th>
+  </tr>
+    {% for g in data %}
+  <tr>
+    <td>{{ loop.index }}&nbsp;</td>
+    <td>{{ g['note'] }}</td>
+    <td>{{ g['date'] }}</td>
+    <td><a href="/deletetips/{{ g['noteid'] }}" onclick="return confirm('Are u sure to delete')" class="btn btn-danger">DELETE</a></td>
+  </tr>
+ {% endfor %}
+</table>
+</body>
+</html>
+{% endblock %}
